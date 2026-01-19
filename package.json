@@ -1,19 +1,22 @@
 {
-  "name": "chamcard-suite",
+  "name": "chamcard-api",
   "private": true,
-  "workspaces": [
-    "api",
-    "apps/chamcard",
-    "apps/validator",
-    "apps/admin"
-  ],
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "install:all": "npm install --workspaces",
-    "dev": "concurrently -k -n API,CHAMCARD,VALIDATOR,ADMIN -c auto \"npm --workspace api run dev\" \"npm --workspace apps/chamcard run dev -- --port 5173\" \"npm --workspace apps/validator run dev -- --port 5174\" \"npm --workspace apps/admin run dev -- --port 5175\"",
-    "build": "npm --workspace apps/chamcard run build && npm --workspace apps/validator run build && npm --workspace apps/admin run build",
-    "start:api": "npm --workspace api start"
+    "dev": "node --watch server.js",
+    "start": "node server.js"
   },
-  "devDependencies": {
-    "concurrently": "^9.1.0"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^7.2.0",
+    "lowdb": "^7.0.1",
+    "nanoid": "^5.0.7"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
   }
 }
