@@ -1,0 +1,11 @@
+﻿# ignore heavy folders
+node_modules/
+**/node_modules/
+**/dist/
+apps/
+
+# keep only these
+!api/**
+!package.json
+!package-lock.json
+!README.md
